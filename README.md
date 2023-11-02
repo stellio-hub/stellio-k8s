@@ -24,30 +24,30 @@ kubectl create secret generic pg-credentials \
 * Register the config maps
  
 ```shell
-kubectl apply -f stellio-configmap.yaml \
--f kafka-configmap.yaml
+kubectl apply -f deployment/stellio-configmap.yaml \
+    -f deployment/kafka-configmap.yaml
 ```
 
 * Create the persistent volumes (in a production setup, they have been created beforehand by an admin)
 
 ```
-kubectl apply -f stellio-pv.yaml
+kubectl apply -f deployment/stellio-pv.yaml
 ```
 
 * Start all pods
   
 ```shell
-kubectl apply -f api-gateway-deployment.yaml \
--f kafka-deployment.yaml \
--f postgres-deployment.yaml \
--f search-service-deployment.yaml \
--f subscription-service-deployment.yaml
+kubectl apply -f deployment/api-gateway-deployment.yaml \
+-f deployment/kafka-deployment.yaml \
+-f deployment/postgres-deployment.yaml \
+-f deployment/search-service-deployment.yaml \
+-f deployment/subscription-service-deployment.yaml
 ```
 
 * Start ingress
 
 ```shell
-kubectl apply -f stellio-ingress.yaml # started in ingress-nginx namespace
+kubectl apply -f deployment/stellio-ingress.yaml # started in ingress-nginx namespace
 ```
 
 * Enable and configure Ingress addon for Minikube
