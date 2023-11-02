@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: stellio-conf
+data:
+  ENVIRONMENT: "docker"
+  STELLIO_SEARCH_DB_DATABASE: "stellio_search"
+  STELLIO_SUBSCRIPTION_DB_DATABASE: "stellio_subscription"
+  POSTGRES_DBNAME: "stellio_search,stellio_subscription"
+  STELLIO_AUTHENTICATION_ENABLED: "false"
+  APPLICATION_TENANTS_0_ISSUER: "https://sso.eglobalmark.com/auth/realms/stellio"
+  APPLICATION_TENANTS_0_URI: "urn:ngsi-ld:tenant:default"
+  APPLICATION_TENANTS_0_DBSCHEMA: "public"
+  SUBSCRIPTION_ENTITY-SERVICE-URL: "http://search-service:8083"
+  SUBSCRIPTION_STELLIO_URL: "http://localhost:8080"
+  KAFKA_URL: "stellio-kafka:9092"
