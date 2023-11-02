@@ -5,11 +5,12 @@ metadata:
     app: stellio-api-gateway
   name: api-gateway
 spec:
-  type: ClusterIP
+  type: NodePort
   ports:
-    - name: "8080"
+    - name: http
       port: 8080
       targetPort: 8080
+      nodePort: 32093
   selector:
     app: stellio-api-gateway
 ---
