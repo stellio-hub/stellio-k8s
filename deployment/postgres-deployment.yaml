@@ -19,12 +19,12 @@ metadata:
   name: stellio-postgres-pvc
 spec:
   accessModes:
-    - ReadWriteOnce
+    - ReadWriteMany
   storageClassName: ""
   resources:
     requests:
-      storage: 5Gi
-  volumeName: stellio-postgres-pv
+      storage: 100Gi
+  volumeName: nfs-egm-pv
 ---
 apiVersion: apps/v1
 kind: StatefulSet
