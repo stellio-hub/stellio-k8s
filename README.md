@@ -80,3 +80,16 @@ kubectl get pods
 ```shell
 kubectl logs -f <pod_name>
 ```
+
+* Delete the whole deployment
+
+```shell
+kubectl delete -f api-gateway-deployment.yaml \
+    -f search-service-deployment.yaml \
+    -f subscription-service-deployment.yaml \
+    -f kafka-deployment.yaml \
+    -f postgres-deployment.yaml \
+    -f stellio-pv.yaml \
+    -f stellio-configmap.yaml \
+    -f kafka-configmap.yaml
+```
